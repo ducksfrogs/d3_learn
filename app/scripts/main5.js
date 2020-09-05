@@ -1,7 +1,14 @@
 
 const canvas = d3.select('.canva');
 
-var dataArray = [4,15,34, 123, 23, 0];
+// var dataArray = [4,15,34, 123, 23, 0];
+var dataArray = [
+  {width: 25, height: 4, fill: "orange"},
+  {width: 25, height: 44, fill: "purple"},
+  {width: 25, height: 123, fill: "yellow"},
+  {width: 25, height: 66, fill: "magenta"},
+  {width: 25, height: 123, fill: "gray"}
+]
 //add svg element
 
 
@@ -17,15 +24,17 @@ const svg = canvas.append('svg')
 rect.data(dataArray)
         .enter().append("rect")
         .attr("width", "24")
-        .attr("fill", "orange")
+        .attr("fill", function(d){
+                  return d.fill;
+        })
         .attr("height", function(d){
-                    return d *2}
+                    return d.height*2 }
                   )
 
         .attr("x", function(d, i) {
                 return i * 25;
         })
         .attr("y", function(d){
-              return 100 - (d*2);
+              return 400 - (d.height*2);
         });
 console.log(rect);
