@@ -25,7 +25,4 @@ rect.attr("width", 20)
                 console.log(i);
                 return i * 21;
         })
-        .attr("y", function(d, i){
-              return 100 -(d*2);
-        })
 console.log(rect)
